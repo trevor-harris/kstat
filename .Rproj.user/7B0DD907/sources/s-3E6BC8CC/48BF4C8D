@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1552525632253.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "48BF4C8D",
+    "lastKnownWriteTime" : 1552528037,
+    "last_content_update" : 1552528241307,
+    "path" : "C:/Users/Trevor/research/kstat/R/depth.R",
+    "project_path" : "R/depth.R",
+    "properties" : {
+        "cursorPosition" : "6,2",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

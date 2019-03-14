@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1552526005454.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "A5746F9C",
+    "lastKnownWriteTime" : 1552526551,
+    "last_content_update" : 1552527705870,
+    "path" : "C:/Users/Trevor/research/kstat/R/stat.R",
+    "project_path" : "R/stat.R",
+    "properties" : {
+        "cursorPosition" : "10,22",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
