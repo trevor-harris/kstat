@@ -54,8 +54,8 @@ gp2d = function(n = 100, mu = 0, sd = 1, l = 30, pts = 30) {
   sigma.eig = eigen(sigma)
   sigma.half = sigma.eig$vectors %*% diag(sqrt(sigma.eig$values)) %*% t(sigma.eig$vectors)
 
-  gps = array(0, dim=c(pts, pts, fields))
-  for(f in 1:fields) {
+  gps = array(0, dim=c(pts, pts, n))
+  for(f in 1:n) {
     gps[,,f] = (sigma.half %*% rnorm(pts^2, sd = sd)) + mu
   }
   return(gps)

@@ -7,18 +7,18 @@
 #'
 #' @export
 kstat = function(fmat, gmat) {
-  ff.xd = xdepth(f, f)
-  fg.xd = xdepth(f, g)
+  ff.xd = int_depth(fmat, fmat)
+  fg.xd = int_depth(fmat, gmat)
 
-  gg.xd = xdepth(g, g)
-  gf.xd = xdepth(g, f)
+  gg.xd = int_depth(gmat, gmat)
+  gf.xd = int_depth(gmat, fmat)
 
   ff.cdf = sapply(ff.xd, function(y) mean(ff.xd <= y))
   gf.cdf = sapply(ff.xd, function(y) mean(gf.xd <= y))
   fg.cdf = sapply(gg.xd, function(y) mean(fg.xd <= y))
   gg.cdf = sapply(gg.xd, function(y) mean(gg.xd <= y))
 
-  rate = sqrt((ncol(g)*ncol(f)) / (ncol(g) + ncol(f)))
+  rate = sqrt((ncol(gmat)*ncol(fmat)) / (ncol(gmat) + ncol(fmat)))
 
   ksf = max(abs(ff.cdf - gf.cdf))
   ksg = max(abs(gg.cdf - fg.cdf))
