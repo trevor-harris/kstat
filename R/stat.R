@@ -2,7 +2,7 @@
 #' @param fmat Matrix of functions. Each column is a function.
 #' @param gmat Matrix of functions. Each column is a function. Need to be same length as fmat.
 #'
-#' @return Value of the K statistic and the associated p value under the null, as a vector.
+#' @return Value of the KD statistic and the associated p value under the null, as a vector.
 #'
 #' @export
 kstat = function(fmat, gmat) {
@@ -22,9 +22,9 @@ kstat = function(fmat, gmat) {
   ksf = max(abs(ff.cdf - gf.cdf))
   ksg = max(abs(gg.cdf - fg.cdf))
 
-  ks = max(ksf, ksg)
+  kd = max(ksf, ksg)
 
-  c(ks, 1-ks_cdf(rate*ks))
+  c(kd, 1-ks_cdf(rate*kd))
 }
 
 
@@ -49,28 +49,28 @@ ks_cdf = function(x, n = 20) {
 #' @param perms Positive integer. Number of permutations to construct the approximate permutation distribution.
 #'
 #'
-#' @return Value of the K statistic and the associated p value under the null, as a vector, using a permutation distribution
+#' @return Value of the KD statistic and the associated p value under the null, as a vector, using a permutation distribution
 #'
 #' @export
 kstat_perm = function(fmat, gmat, perms = 500) {
 
-  # compute KSD statistic
-  ks = kstat(fmat, gmat)[1]
+  # compute KD statistic
+  kd = kstat(fmat, gmat)[1]
 
   # construct permutation distribution
   hmat = cbind(fmat, gmat)
   hn = ncol(hmat)
   fn = ncol(fmat)
 
-  ksd.dist = rep(0, perms)
+  kd.dist = rep(0, perms)
 
-  ksd.dist = sapply(1:perms, function(y) {
+  kd.dist = sapply(1:perms, function(y) {
     hstar = hmat[,sample(1:hn, hn, replace = F)]
     kstat(hstar[,1:fn], hstar[,-(1:fn)])[1]
   })
 
-  # return KS and permutation p value
-  c(ks, mean(ksd.dist > ks))
+  # return KD and permutation p value
+  c(kd, mean(kd.dist > kd))
 }
 
 
